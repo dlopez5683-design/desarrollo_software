@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Sistema Help Desk</h1>
+    </header>
+
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="reportar.html">Reportar</a>
+      <a href="tickets.html">Tickets</a>
+    </nav>
+
+    <main>
+      <section>
+        <h2>Reportar Incidente</h2>
+
+        <form>
+          <label>Título del incidente:</label>
+          <input type="text" name="titulo">
+
+          <br><br>
+
+          <label>Categoría:</label>
+
+          <select name="categoria">
+            <option>Red</option>
+            <option>Hardware</option>
+            <option>Software</option>
+          </select>
+
+          <br><br>
+
+          <label>Prioridad:</label>
+
+          <input type="radio" name="prioridad"> Alta
+          <input type="radio" name="prioridad"> Media
+          <input type="radio" name="prioridad"> Baja
+
+          <br><br>
+
+          <label>Descripción:</label><br>
+
+          <textarea rows="5" cols="40"></textarea>
+
+          <br><br>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 IHC - Periódico Digital. Todos los derechos reservados.</p>
+      <p>By David Gregorio López Pita</p>
+    </footer>
+  </body>
+</html>
