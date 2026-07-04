@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actividad 5 - UI Kit Help Desk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <div>
+        <h1>Sistema Help Desk</h1>
+        <p>Design System - Librería de Componentes UI</p>
+      </div>
+
+      <nav class="nav">
+        <a href="#botones">Botones</a>
+        <a href="#formularios">Formularios</a>
+        <a href="#tarjetas">Tarjetas</a>
+        <a href="#badges">Badges</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-layout">
+
+    <section class="section">
+      <h2>1. Paleta de colores corporativa</h2>
+      <p>
+        La paleta de colores se define mediante variables CSS para facilitar
+        la reutilización de estilos en todo el sistema Help Desk.
+      </p>
+
+      <div class="color-grid">
+        <div class="color-box primary">Primario</div>
+        <div class="color-box secondary">Secundario</div>
+        <div class="color-box success">Éxito</div>
+        <div class="color-box warning">Advertencia</div>
+        <div class="color-box danger">Error</div>
+      </div>
+    </section>
+
+    <section class="section" id="botones">
+      <h2>2. Botones</h2>
+      <p>
+        Los botones permiten ejecutar acciones principales, secundarias o de peligro.
+      </p>
+
+      <div class="component-row">
+        <button class="btn btn-primary">Guardar ticket</button>
+        <button class="btn btn-secondary">Cancelar</button>
+        <button class="btn btn-danger">Eliminar</button>
+        <button class="btn btn-outline">Ver detalle</button>
+      </div>
+    </section>
+
+    <section class="section" id="formularios">
+      <h2>3. Formularios</h2>
+      <p>
+        Los formularios permiten registrar incidentes técnicos de red, hardware
+        o software.
+      </p>
+
+      <form class="form-card">
+        <div class="form-group">
+          <label for="titulo">Título del incidente</label>
+          <input type="text" id="titulo" placeholder="Ejemplo: Error de red">
+        </div>
+
+        <div class="form-group">
+          <label for="categoria">Categoría</label>
+          <select id="categoria">
+            <option>Red</option>
+            <option>Hardware</option>
+            <option>Software</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Prioridad</label>
+          <div class="radio-group">
+            <label><input type="radio" name="prioridad"> Alta</label>
+            <label><input type="radio" name="prioridad"> Media</label>
+            <label><input type="radio" name="prioridad"> Baja</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" rows="4" placeholder="Describa el problema técnico..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar incidente</button>
+      </form>
+    </section>
+
+    <section class="section" id="tarjetas">
+      <h2>4. Tarjetas de tickets</h2>
+      <p>
+        Las tarjetas permiten mostrar información resumida de un ticket de soporte.
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-header">
+            <h3>Ticket #001</h3>
+            <span class="badge badge-high">Alta</span>
+          </div>
+          <p><strong>Categoría:</strong> Red</p>
+          <p>Error de conectividad en el área administrativa.</p>
+          <span class="status status-open">Abierto</span>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3>Ticket #002</h3>
+            <span class="badge badge-medium">Media</span>
+          </div>
+          <p><strong>Categoría:</strong> Hardware</p>
+          <p>Equipo no enciende correctamente.</p>
+          <span class="status status-process">En proceso</span>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3>Ticket #003</h3>
+            <span class="badge badge-low">Baja</span>
+          </div>
+          <p><strong>Categoría:</strong> Software</p>
+          <p>Actualización pendiente de una aplicación interna.</p>
+          <span class="status status-closed">Cerrado</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="badges">
+      <h2>5. Alertas y etiquetas</h2>
+
+      <div class="alert alert-success">
+        Ticket registrado correctamente.
+      </div>
+
+      <div class="alert alert-warning">
+        Revise la prioridad antes de enviar el incidente.
+      </div>
+
+      <div class="alert alert-danger">
+        No se pudo eliminar el ticket seleccionado.
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 DSI - Actividad # 5: Desarrollo de una Librería de Componentes UI (Design System). Todos los derechos reservados.</p>
+    <p>By David Gregorio López Pita</p>
+  </footer>
+</body>
+</html>
