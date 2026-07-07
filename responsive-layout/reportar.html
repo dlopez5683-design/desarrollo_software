@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Incidente - Help Desk</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-content">
+        <div>
+          <h1>Sistema Help Desk</h1>
+          <p>Registro de incidentes tecnológicos</p>
+        </div>
+        <nav class="nav" aria-label="Menú principal">
+          <a href="index.html">Inicio</a>
+          <a href="reportar.html" aria-current="page">Reportar</a>
+          <a href="tickets.html">Tickets</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <div class="container">
+        <section class="section">
+          <h2>Reportar Incidente</h2>
+
+          <form class="form-card">
+            <div class="form-group">
+              <label for="titulo">Título del incidente:</label>
+              <input type="text" id="titulo" name="titulo" placeholder="Ejemplo: Error de conexión a internet" required>
+            </div> 
+            <div class="form-group">
+              <label for="categoria">Categoría:</label>
+              <select id="categoria" name="categoria" required>
+                <option value="">Seleccione una categoría</option>
+                <option value="red">Red</option>
+                <option value="hardware">Hardware</option>
+                <option value="software">Software</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label>Prioridad:</label>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="prioridad" value="alta" required>
+                  Alta
+                </label>
+
+                <label>
+                  <input type="radio" name="prioridad" value="media">
+                  Media
+                </label>
+
+                <label>
+                  <input type="radio" name="prioridad" value="baja">
+                  Baja
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción:</label>
+              <textarea
+                id="descripcion"
+                name="descripcion"
+                rows="5"
+                placeholder="Describa detalladamente el problema presentado"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Enviar ticket</button>
+              <button type="reset" class="btn btn-secondary">Limpiar</button>
+            </div>
+
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Sistema Help Desk. Todos los derechos reservados.</p>
+      <p>By David Gregorio López Pita</p>
+    </footer>
+  </body>
+</html>

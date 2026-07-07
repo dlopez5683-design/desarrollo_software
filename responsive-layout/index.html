@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Help Desk</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-content">
+        <div>
+          <h1>Sistema Help Desk</h1>
+          <p>Gestión de incidentes tecnológicos</p>
+        </div>
+        <nav class="nav" aria-label="Menú principal">
+          <a href="index.html" aria-current="page">Inicio</a>
+          <a href="reportar.html">Reportar</a>
+          <a href="tickets.html">Tickets</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <div class="container">
+        <section class="section">
+          <h2>Dashboard Principal</h2>
+
+          <article class="card welcome-card">
+            <h3>Bienvenido al sistema Help Desk</h3>
+            <p>Sistema para gestión de incidentes tecnológicos.</p>
+          </article>
+        </section>
+
+        <section class="section">
+          <h2>Resumen general</h2>
+
+          <div class="dashboard-grid">
+            <article class="metric-card">
+              <h3>Tickets abiertos</h3>
+              <p class="metric-number">12</p>
+              <span class="status status-open">Abiertos</span>
+            </article>
+
+            <article class="metric-card">
+              <h3>Tickets cerrados</h3>
+              <p class="metric-number">8</p>
+              <span class="status status-closed">Cerrados</span>
+            </article>
+
+            <article class="metric-card">
+              <h3>Usuarios activos</h3>
+              <p class="metric-number">20</p>
+              <span class="status status-process">Activos</span>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Sistema Help Desk. Todos los derechos reservados.</p>
+      <p>By David Gregorio López Pita</p>
+    </footer>
+  </body>
+</html>
