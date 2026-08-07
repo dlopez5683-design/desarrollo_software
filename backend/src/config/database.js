@@ -1,20 +1,21 @@
 const mongoose = require("mongoose");
 
 const conectarBaseDatos = async () => {
-  try {
-    const conexion = await mongoose.connect(process.env.MONGODB_URI);
+  const uri = process.env.MONGODB_URI;
 
-    console.log(
-      `Base de datos conectada: ${conexion.connection.host}`
+  if (!uri) {
+    throw new Error(
+      "La variable MONGODB_URI no está configurada"
     );
-  } catch (error) {
-    console.error(
-      "Error al conectar con MongoDB:",
-      error.message
-    );
-
-    process.exit(1);
   }
+
+  const conexion = await mongoose.connect(uri, {
+    serverSelectionTimeoutMS: 30000
+  });
+
+  console.log(
+    `Base de datos conectada: ${conexion.connection.host}`
+  );
 };
 
 module.exports = conectarBaseDatos;
