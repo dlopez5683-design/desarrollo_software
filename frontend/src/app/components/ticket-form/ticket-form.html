@@ -1,0 +1,139 @@
+<section
+  id="registrar"
+  class="section"
+>
+  <div class="section__heading">
+    <div>
+      <span class="section__label">
+        Nuevo reporte
+      </span>
+
+      <h2>Registrar incidente</h2>
+    </div>
+
+    <p>
+      Complete la información técnica del problema.
+    </p>
+  </div>
+
+  <form
+    class="ticket-form"
+    [formGroup]="formulario"
+    (ngSubmit)="guardar()"
+    novalidate
+  >
+    <div class="form-field form-field--full">
+      <label for="titulo">
+        Título del incidente
+      </label>
+
+      <input
+        id="titulo"
+        type="text"
+        formControlName="titulo"
+        maxlength="100"
+        placeholder="Ejemplo: Computador no enciende"
+      >
+
+      @if (campoInvalido('titulo')) {
+        <small class="field-error">
+          El título es obligatorio y debe contener
+          al menos 3 caracteres.
+        </small>
+      }
+    </div>
+
+    <div class="form-field form-field--full">
+      <label for="descripcion">
+        Descripción
+      </label>
+
+      <textarea
+        id="descripcion"
+        formControlName="descripcion"
+        maxlength="500"
+        rows="5"
+        placeholder="Describa el problema presentado"
+      ></textarea>
+
+      @if (campoInvalido('descripcion')) {
+        <small class="field-error">
+          La descripción es obligatoria y debe
+          contener al menos 5 caracteres.
+        </small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="categoria">
+        Categoría
+      </label>
+
+      <select
+        id="categoria"
+        formControlName="categoria"
+      >
+        <option value="Red">Red</option>
+        <option value="Hardware">Hardware</option>
+        <option value="Software">Software</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="prioridad">
+        Prioridad
+      </label>
+
+      <select
+        id="prioridad"
+        formControlName="prioridad"
+      >
+        <option value="Alta">Alta</option>
+        <option value="Media">Media</option>
+        <option value="Baja">Baja</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="estado">
+        Estado inicial
+      </label>
+
+      <select
+        id="estado"
+        formControlName="estado"
+      >
+        <option value="Abierto">Abierto</option>
+        <option value="En Progreso">
+          En Progreso
+        </option>
+        <option value="Cerrado">Cerrado</option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        [disabled]="enviando()"
+      >
+        @if (enviando()) {
+          Registrando...
+        } @else {
+          Registrar ticket
+        }
+      </button>
+    </div>
+  </form>
+
+  @if (mensaje()) {
+    <p class="alert alert--success">
+      {{ mensaje() }}
+    </p>
+  }
+
+  @if (error()) {
+    <p class="alert alert--error">
+      {{ error() }}
+    </p>
+  }
+</section>

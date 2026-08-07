@@ -85,14 +85,19 @@ const actualizarTicket = async (req, res) => {
       });
     }
 
-    const ticketActualizado = await Ticket.findByIdAndUpdate(
-      id,
-      req.body,
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
+    const ticketActualizado = await Ticket.findByIdAndUpdate(id, req.body, {
+      returnDocument: "after",
+      runValidators: true,
+    });
+
+    //const ticketActualizado = await Ticket.findByIdAndUpdate(
+    //id,
+    //req.body,
+    //{
+    //new: true,
+    //runValidators: true,
+    //}
+    //);
 
     if (!ticketActualizado) {
       return res.status(404).json({

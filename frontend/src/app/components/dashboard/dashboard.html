@@ -1,0 +1,45 @@
+<section
+  id="dashboard"
+  class="section"
+>
+  <div class="section__heading">
+    <div>
+      <span class="section__label">
+        Resumen
+      </span>
+
+      <h2>Dashboard de incidentes</h2>
+    </div>
+
+    <p>
+      Estado general de los tickets registrados.
+    </p>
+  </div>
+
+  <div class="dashboard-grid">
+    <article class="stat-card">
+      <span>Total de entradas</span>
+      <strong>{{ total() }}</strong>
+    </article>
+
+    <article class="stat-card">
+      <span>Abiertos</span>
+      <strong>{{ abiertos() }}</strong>
+    </article>
+
+    <article class="stat-card">
+      <span>En progreso</span>
+      <strong>{{ enProgreso() }}</strong>
+    </article>
+
+    <article class="stat-card">
+      <span>Cerrados</span>
+      <strong>{{ cerrados() }}</strong>
+    </article>
+
+    <article class="stat-card stat-card--alert">
+      <span>Prioridad alta</span>
+      <strong>{{ prioridadAlta() }}</strong>
+    </article>
+  </div>
+</section>

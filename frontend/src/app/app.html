@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+
+<main class="main-container">
+  <section class="hero">
+    <div>
+      <span class="hero__label">
+        Soporte tecnológico
+      </span>
+
+      <h2>
+        Gestión centralizada de incidentes informáticos
+      </h2>
+
+      <p>
+        Registre, consulte y controle los problemas de red, hardware y software desde una sola
+        plataforma.
+      </p>
+
+      <a
+        href="#registrar"
+        class="hero__button"
+      >
+        Registrar un incidente
+      </a>
+    </div>
+
+    
+  </section>
+
+  @if (errorGeneral()) {
+    <p class="alert alert--error">
+      {{ errorGeneral() }}
+    </p>
+  }
+
+  <app-dashboard
+    [tickets]="tickets()">
+  </app-dashboard>
+
+  <app-ticket-form
+    (ticketCreado)="cargarTickets()">
+  </app-ticket-form>
+
+  <app-ticket-list
+    [tickets]="tickets()"
+    [cargando]="cargando()"
+    (datosModificados)="cargarTickets()">
+  </app-ticket-list>
+</main>
+
+<footer class="footer">
+  <p>
+    Sistema Help Desk UTM ·
+    Desarrollo de Sistemas Informáticos  
+  </p>
+  <p>by David Gregorio López Pita</p>
+  
+</footer>

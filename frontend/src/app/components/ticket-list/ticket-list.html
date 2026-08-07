@@ -1,0 +1,148 @@
+<section
+  id="tickets"
+  class="section"
+>
+  <div class="section__heading">
+    <div>
+      <span class="section__label">
+        Gestión
+      </span>
+
+      <h2>Listado de tickets</h2>
+    </div>
+
+    <p>
+      Consulte, actualice o elimine incidentes
+      registrados.
+    </p>
+  </div>
+
+  @if (mensaje()) {
+    <p class="alert alert--success">
+      {{ mensaje() }}
+    </p>
+  }
+
+  @if (error()) {
+    <p class="alert alert--error">
+      {{ error() }}
+    </p>
+  }
+
+  @if (cargando) {
+    <p class="empty-state">
+      Cargando tickets...
+    </p>
+  } @else if (tickets.length === 0) {
+    <p class="empty-state">
+      No existen tickets registrados.
+    </p>
+  } @else {
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Categoría</th>
+            <th>Prioridad</th>
+            <th>Estado</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (
+            ticket of tickets;
+            track ticket._id ?? $index
+          ) {
+            <tr>
+              <td>
+                <strong>
+                  {{ ticket.titulo }}
+                </strong>
+
+                <small>
+                  {{ ticket.descripcion }}
+                </small>
+              </td>
+
+              <td>
+                {{ ticket.categoria }}
+              </td>
+
+              <td>
+                <span
+                  [class]="
+                    clasePrioridad(ticket.prioridad)
+                  "
+                >
+                  {{ ticket.prioridad }}
+                </span>
+              </td>
+
+              <td>
+                <span
+                  [class]="claseEstado(ticket.estado)"
+                >
+                  {{ ticket.estado }}
+                </span>
+              </td>
+
+              <td>
+                {{
+                  ticket.createdAt
+                    | date:'dd/MM/yyyy HH:mm'
+                }}
+              </td>
+
+              <td>
+                <div class="table-actions">
+                  <select
+                    [value]="ticket.estado"
+                    [disabled]="
+                      procesandoId() === ticket._id
+                    "
+                    (change)="
+                      onEstadoChange(ticket, $event)
+                    "
+                    aria-label="Cambiar estado"
+                  >
+                    <option value="Abierto">
+                      Abierto
+                    </option>
+
+                    <option value="En Progreso">
+                      En Progreso
+                    </option>
+
+                    <option value="Cerrado">
+                      Cerrado
+                    </option>
+                  </select>
+
+                  <button
+                    type="button"
+                    class="button-danger"
+                    [disabled]="
+                      procesandoId() === ticket._id
+                    "
+                    (click)="eliminar(ticket)"
+                  >
+                    @if (
+                      procesandoId() === ticket._id
+                    ) {
+                      Procesando...
+                    } @else {
+                      Eliminar
+                    }
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</section>
